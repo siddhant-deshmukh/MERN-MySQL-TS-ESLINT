@@ -1,0 +1,36 @@
+{
+
+  "tailwindCSS.experimental.configFile": "src/style.scss",
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  
+    "tailwindCSS.includeLanguages": {
+      "html": "html",
+      "typescript": "typescript",
+      "scss": "scss",
+      "css": "css"
+    },
+    "tailwindCSS.files.exclude": [
+      "**/.git/**",
+      "**/node_modules/**",
+      "**/.hg/**",
+      "**/.svn/**"
+    ],
+    "tailwindCSS.classAttributes": [
+      "class",
+      "className",
+      "ngClass",
+      "[class]",
+      "[ngClass]"
+    ],
+    "tailwindCSS.experimental.classRegex": [
+      ["class:\\s*?[\"'`]([^\"'`]*).*?[\"'`]", "[\"'`]([^\"'`]*)[\"'`]"],
+      ["ngClass.*?[\"'`]([^\"'`]*).*?[\"'`]", "[\"'`]([^\"'`]*)[\"'`]"]
+    ],
+    "tailwindCSS.emmetCompletions": true,
+    "tailwindCSS.validate": true,
+    "css.validate": false,
+    "scss.validate": false
+  
+}
