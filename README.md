@@ -7,12 +7,75 @@ This project is a full-stack application that implements product CRUD functional
 ## 🧰 Tech Stack
 
 - **Backend:** Express 5.0 (with TypeScript), MongoDB (Mongoose), MySQL (Sequelize)
-- **Frontend:** React.js, Redux Toolkit, TailwindCSS, ShadCN UI
+- **Frontend:** Angular.js, RxJS, TailwindCSS, PrimeNG
 - **Tools & Utilities:** Vite, ESLint, Express-Generator-Typescript, Sequelize CLI
 - **External API:** [ExchangeRate API](https://v6.exchangerate-api.com/v6/) for live currency data
-  - ![Dashboard Screenshot](./dashboard.png)
+  - ![Dashboard Screenshot](./demo-4.png)
+  - ![Demo Screenshot](./demo-1.png)
+  - ![Demo Screenshot](./demo-2.png)
+  - ![Demo Screenshot](./demo-3.png)
 
 ---
+
+
+### Frontend
+
+* Create `frontend/.env` with `VITE_API_URL=http://localhost:3073`
+* `yarn install`
+* folder structure
+* ``` 
+  .
+    ├── app
+    │   ├── app.component.html
+    │   ├── app.component.scss
+    │   ├── app.component.spec.ts
+    │   ├── app.component.ts
+    │   ├── app.config.ts
+    │   ├── app.routes.ts
+    │   ├── core
+    │   │   ├── interceptor
+    │   │   │   └── loading.ts
+    │   │   ├── models
+    │   │   │   └── user.model.ts
+    │   │   └── services
+    │   │       ├── api.service.spec.ts
+    │   │       ├── api.service.ts
+    │   │       ├── auth.service.spec.ts
+    │   │       ├── auth.service.ts
+    │   │       ├── loading.service.spec.ts
+    │   │       └── loading.service.ts
+    │   └── features
+    │       ├── auth-form
+    │       │   ├── auth-form.component.html
+    │       │   ├── auth-form.component.scss
+    │       │   ├── auth-form.component.spec.ts
+    │       │   └── auth-form.component.ts
+    │       ├── dashboard
+    │       │   ├── dashboard.component.html
+    │       │   ├── dashboard.component.scss
+    │       │   ├── dashboard.component.spec.ts
+    │       │   └── dashboard.component.ts
+    │       ├── orders
+    │       │   └── orders-list
+    │       │       ├── orders-list.component.html
+    │       │       ├── orders-list.component.scss
+    │       │       ├── orders-list.component.spec.ts
+    │       │       └── orders-list.component.ts
+    │       └── products
+    │           └── products-list
+    │               ├── products-list.component.html
+    │               ├── products-list.component.scss
+    │               ├── products-list.component.spec.ts
+    │               └── products-list.component.ts
+    ├── environments
+    │   └── environment.ts
+    ├── index.html
+    ├── main.ts
+    ├── styles.scss
+    └── tailwind_mode.css
+  ```
+
+
 
 ## 🚀 Features
 
@@ -171,8 +234,3 @@ This project is a full-stack application that implements product CRUD functional
 * `yarn build` to build
 * `yarn start` to start
 
-
-### Frontend
-
-* Create `frontend/.env` with `VITE_API_URL=http://localhost:3073`
-* `yarn install`
