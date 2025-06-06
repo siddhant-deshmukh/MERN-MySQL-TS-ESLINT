@@ -10,7 +10,7 @@ const router = Router();
 
 // GET all products
 router.get('/', async (_: Request, res: Response) => {
-  const products: IProduct[] = await Product.find();
+  const products: IProduct[] = await Product.find().sort({ createdAt: -1 }).lean();
   res.status(HttpStatusCodes.OK).json(products);
 });
 
@@ -23,7 +23,7 @@ router.get(
   expressRouterValidator,
   async (req: Request, res: Response) => {
     const { _id } = req.params;
-    const product = await Product.findById(_id).lean();
+    const product = await Product.findById(_id).sort({ createdAt: -1 }).lean();
 
     if (!product) 
       throw new RouteError(HttpStatusCodes.NOT_FOUND, 'Product Not Found');

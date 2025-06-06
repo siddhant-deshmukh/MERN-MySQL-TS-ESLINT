@@ -1,0 +1,74 @@
+<div class="flex items-center justify-center min-h-screen p-5">
+  <div class="w-full max-w-md shadow-xl border border-surface-800 shadow-surface-800 rounded-lg p-0">
+    <!-- Form-specific messages -->
+    <p-messages [(value)]="formMessages" [enableService]="false" [closable]="true"></p-messages>
+
+    <p-tabView class="bg-surface-900" (onChange)="onTabChange($event)">
+      <p-tabPanel header="Login" class="pt-5">
+        <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" class="space-y-6 px-5 pb-5">
+          <div>
+            <label for="login-username" class="block text-sm font-medium">Username</label>
+            <input id="login-username" pInputText formControlName="username" class="w-full mt-1"
+                   [ngClass]="{'ng-invalid ng-dirty': loginForm.controls['username'].invalid && loginForm.controls['username'].dirty}" />
+            <small *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)" class="p-error block">
+              <span *ngIf="loginForm.controls['username'].errors?.['required']">Username is required.</span>
+              <span *ngIf="loginForm.controls['username'].errors?.['minlength']">Username must be at least 3 characters.</span>
+            </small>
+          </div>
+
+          <div>
+            <label for="login-password" class="block text-sm font-medium">Password</label>
+            <p-password id="login-password" formControlName="password" [toggleMask]="true" styleClass="w-full mt-1" inputStyleClass="w-full"
+                        [feedback]="false"
+                        [ngClass]="{'ng-invalid ng-dirty': loginForm.controls['password'].invalid && loginForm.controls['password'].dirty}"></p-password>
+            <small *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="p-error block">
+              <span *ngIf="loginForm.controls['password'].errors?.['required']">Password is required.</span>
+              <span *ngIf="loginForm.controls['password'].errors?.['minlength']">Password must be at least 6 characters.</span>
+            </small>
+          </div>
+
+          <div>
+            <button pButton type="submit" label="Login" class="w-full" [loading]="(isLoading$ | async) === true && activeTabIndex === 0" [disabled]="loginForm.invalid"></button>
+          </div>
+        </form>
+      </p-tabPanel>
+
+      <p-tabPanel header="Register" class="pt-5">
+        <form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()" class="space-y-6 px-5 pb-5">
+          <div>
+            <label for="register-username" class="block text-sm font-medium">Username</label>
+            <input id="register-username" pInputText formControlName="username" class="w-full mt-1"
+                   [ngClass]="{'ng-invalid ng-dirty': registerForm.controls['username'].invalid && registerForm.controls['username'].dirty}" />
+            <small *ngIf="registerForm.controls['username'].invalid && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)" class="p-error block">
+              <span *ngIf="registerForm.controls['username'].errors?.['required']">Username is required.</span>
+              <span *ngIf="registerForm.controls['username'].errors?.['minlength']">Username must be at least 3 characters.</span>
+            </small>
+          </div>
+
+          <div>
+            <label for="register-password" class="block text-sm font-medium">Password</label>
+            <p-password id="register-password" formControlName="password" [toggleMask]="true" styleClass="w-full mt-1" inputStyleClass="w-full"
+                        [feedback]="false"
+                        [ngClass]="{'ng-invalid ng-dirty': registerForm.controls['password'].invalid && registerForm.controls['password'].dirty}"></p-password>
+            <small *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)" class="p-error block">
+              <span *ngIf="registerForm.controls['password'].errors?.['required']">Password is required.</span>
+              <span *ngIf="registerForm.controls['password'].errors?.['minlength']">Password must be at least 6 characters.</span>
+            </small>
+          </div>
+
+          <div>
+            <button pButton type="submit" label="Register" class="w-full" [loading]="(isLoading$ | async) === true && activeTabIndex === 1" [disabled]="registerForm.invalid"></button>
+          </div>
+        </form>
+      </p-tabPanel>
+    </p-tabView>
+
+    <!-- Global loading spinner (optional here if you have a global one in AppComponent) -->
+    <!-- <p-progressSpinner *ngIf="isLoading$ | async"
+                         styleClass="w-8 h-8 absolute top-1/2 left-1/2 -mt-4 -ml-4"
+                         strokeWidth="4"
+                         animationDuration=".5s">
+    </p-progressSpinner> -->
+
+  </div>
+</div>

@@ -23,7 +23,7 @@ const app = express();
 
 // **** Middleware **** //
 const corsOptions = {
-  origin: 'http://localhost:5173', // Allow only this origin
+  origin: 'http://localhost:4200', // Allow only this origin
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
   credentials: true // Allow cookies, authorization headers, etc.
