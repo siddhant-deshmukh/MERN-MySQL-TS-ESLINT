@@ -16,6 +16,8 @@ import { OverlayPanel, OverlayPanelModule } from 'primeng/overlaypanel'
 import { AuthFormComponent } from "./features/auth-form/auth-form.component";
 import { CommonModule } from '@angular/common';
 import { ProductsListComponent } from './features/products/products-list/products-list.component';
+import { DashboardComponent } from './features/dashboard/dashboard.component';
+import { OrdersListComponent } from './features/orders/orders-list/orders-list.component';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +32,9 @@ import { ProductsListComponent } from './features/products/products-list/product
     TabsModule,
     OverlayPanelModule,
     ConfirmDialogModule, 
-    ProductsListComponent
+    ProductsListComponent,
+    DashboardComponent,
+    OrdersListComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
